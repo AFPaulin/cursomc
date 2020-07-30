@@ -7,7 +7,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,13 +29,19 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	
+	// @Column(unique = true) isso se resolve so que vai aparecer uma exceção do banco de dados
+	// que vem da Spring Data e ela nao possui mto informação
+	@Column(unique = true)
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipo;
 
 	
+	// ALL - se apagar cliente automaticamente os endereços são apagados.permite que o cliente seja apagado
+	// se ele estiver associado com algum endereço
+	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
 	
-	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 
 	@ElementCollection
@@ -53,7 +61,7 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo = tipo.getCod();
+		this.tipo = (tipo==null) ? null: tipo.getCod();
 	}
 
 	public Integer getId() {

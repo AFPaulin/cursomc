@@ -25,7 +25,7 @@ public class Produto implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String name;
+	private String nome;
 	private Double preco;
 
 	// @JsonBackReference omite os objetos que estão associados, uma outra forma em vez 
@@ -46,10 +46,10 @@ public class Produto implements Serializable {
 	public Produto () {
 	}
 
-	public Produto(Integer id, String name, Double preco) {
+	public Produto(Integer id, String nome, Double preco) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 		this.preco = preco;
 	}
 
@@ -70,12 +70,12 @@ public class Produto implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String name) {
+		this.nome = name;
 	}
 
 	public Double getPreco() {

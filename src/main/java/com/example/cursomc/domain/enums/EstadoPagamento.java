@@ -6,6 +6,7 @@ public enum EstadoPagamento {
 	QUITADO(2, "Quitado"),
 	CANCELADO(3, "Cancelado");
 
+
 	private int cod;
 	private String descricao;
 
