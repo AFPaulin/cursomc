@@ -10,7 +10,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.cursomc.domain.Categoria;
 import com.example.cursomc.domain.Cliente;
 import com.example.cursomc.domain.ItemPedido;
 import com.example.cursomc.domain.PagamentoComBoleto;

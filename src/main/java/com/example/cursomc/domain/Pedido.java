@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
